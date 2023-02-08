@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\adhvi\\.nuget\\packages\\": {}
+    "C:\\Users\\adrvi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\github\\dotnet_tinkering2\\dotnetTinkers\\dotnetTinkers.csproj",
+      "projectUniqueName": "D:\\GitRepos\\dotnetTinkers\\dotnetTinkers.csproj",
       "projectName": "dotnetTinkers",
-      "projectPath": "C:\\github\\dotnet_tinkering2\\dotnetTinkers\\dotnetTinkers.csproj",
-      "packagesPath": "C:\\Users\\adhvi\\.nuget\\packages\\",
-      "outputPath": "C:\\github\\dotnet_tinkering2\\dotnetTinkers\\obj\\",
+      "projectPath": "D:\\GitRepos\\dotnetTinkers\\dotnetTinkers.csproj",
+      "packagesPath": "C:\\Users\\adrvi\\.nuget\\packages\\",
+      "outputPath": "D:\\GitRepos\\dotnetTinkers\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\adhvi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\adrvi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -28,9 +28,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://fmsfbuild01:8080/guestAuth/app/nuget/v1/FeedService.svc/": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://www.myget.org/F/geckopublic/": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -63,16 +61,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1803",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://fmsfbuild01:8080/guestAuth/app/nuget/v1/FeedService.svc/'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
-    }
-  ]
+  }
 }

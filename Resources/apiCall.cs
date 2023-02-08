@@ -31,50 +31,118 @@ namespace dotnetTinkers.Resources
                     response.ReasonPhrase);
             }
         }
-    
-        public static string GetApiInfo()
+
+        public static List<CLMatchModel> GetChampionsLeagueInfo(string apiEndpoint)
+        {
+            var ListOfCLMatchModels = new List<CLMatchModel>();
+
+            // string apiUrl = "https://api.nifs.no/stages/690256/matches/";
+            var jsonResult = ApiCall.DoApiCall(apiEndpoint);
+
+            //Kinda insane that this works. Deserializes this straight into my model! Seems legit tho
+            CLMatchModel[] clMatchModels = JsonSerializer.Deserialize<CLMatchModel[]>(jsonResult);
+
+            Console.WriteLine("Matches:");
+            foreach (CLMatchModel clMatchModel in clMatchModels)
             {
-                var ListOfHackerNewsModels = new List<HackerNewsModel>();
-
-                string apiUrl = "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty";
-                var jsonResult = DoApiCall(apiUrl);
-                JsonElement json = JsonSerializer.Deserialize<JsonElement>(jsonResult);
-                int antall = Math.Min(json.GetArrayLength(), 20);
-
-                //Getting 20 stories
-                for (int i = 0; i < antall; i++){
-                    var storyUrl = "https://hacker-news.firebaseio.com/v0/item/" + json[i].GetInt32() + ".json?print=pretty";
-                    Console.WriteLine("Fetching this story: " + storyUrl);
-                    var jsonStoryResult = DoApiCall(storyUrl);
-                    JsonElement jsonStory = JsonSerializer.Deserialize<JsonElement>(jsonStoryResult);
-                    Debug.WriteLine("The json story: " + jsonStory);
-                    JsonElement title = jsonStory.GetProperty("title");
-
-                    var model = new HackerNewsModel(){
-                        by = jsonStory.GetProperty("by").GetString(),
-                        descendants = jsonStory.GetProperty("descendants").GetInt32(),
-                        score = jsonStory.GetProperty("score").GetInt32(),
-                        title = jsonStory.GetProperty("title").GetString(),
-                        url = jsonStory.GetProperty("url").GetString()
-
-                    };
-                    ListOfHackerNewsModels.Add(model);
-
-                    //Iterate through each story
-                    // foreach (JsonElement story in jsonStory.EnumerateArray()){
-                    //     var model = new HackerNewsModel()
-                    //     {
-                    //         by = story.GetProperty("by").GetString(),
-                    //         descendants = story.GetProperty("descendants").GetInt32(),
-                    //         score = story.GetProperty("score").GetInt32(),
-                    //         title = story.GetProperty("title").GetString(),
-                    //         url = story.GetProperty("url").GetString()
-                    //     };
-                    //     ListOfHackerNewsModels.Add(model);
-                    // }
-                }
-
-                return "";
+                
+                Console.WriteLine("-------------");
+                Console.WriteLine($"Away Team Logo: {clMatchModel.AwayTeam.logo}");
+                // Add code to access other properties of your model here
             }
+
+
+
+
+            //Old code that still works?
+
+
+            // JsonElement jsonElementMatches = JsonSerializer.Deserialize<JsonElement>(jsonResult);
+
+            // foreach (JsonElement match in jsonElementMatches.EnumerateArray())
+            //     {
+            //         Console.WriteLine("-------------");
+            //         var matchId = match.GetProperty("id").GetInt32();
+            //         Console.WriteLine($"Match ID: {matchId}");
+
+            //         JsonElement homeTeam = match.GetProperty("homeTeam");
+            //         var homeTeamName = homeTeam.GetProperty("name").GetString();
+            //         Console.WriteLine($"Home Team: {homeTeamName}");
+
+            //         JsonElement awayTeam = match.GetProperty("awayTeam");
+            //         var awayTeamName = awayTeam.GetProperty("name").GetString();
+            //         Console.WriteLine($"Away Team: {awayTeamName}");
+
+            //         var timestamp = match.GetProperty("timestamp").GetString();
+            //         Console.WriteLine($"Match date: {timestamp}");
+
+            //         JsonElement result = match.GetProperty("result");
+            //         var resultString = result.GetProperty("homeScore90").GetString() ?? "Not played yet" + " " + result.GetProperty("homeScore90").GetString() ?? "Not played yet";
+            //         Console.WriteLine($"Score: {resultString}");
+
+            //         var model = new CLMatchModel(){
+
+            //         };ListOfCLMatchModels.Add(model);
+            //     }
+
+            return ListOfCLMatchModels;
+        }
+        public static List<CLMatchModel> GetApiInfo()
+        {
+            var ListOfCLMatchModels = new List<CLMatchModel>();
+
+            string apiUrl = "https://api.nifs.no/stages/690256/matches/";
+            var jsonResult = ApiCall.DoApiCall(apiUrl);
+            var jsonData = JsonSerializer.Deserialize<dynamic>(jsonResult);
+
+
+            foreach (var item in jsonData)
+            {
+                var homeTeam = item.homeTeam;
+                var awayTeam = item.awayTeam;
+                Debug.WriteLine(homeTeam + " " + awayTeam);
+            }
+
+            ////Getting 10 stories
+            //for (int i = 0; i < antall; i++)
+            //{
+            //    var storyUrl = "https://hacker-news.firebaseio.com/v0/item/" + json[i].GetInt32() +
+            //        ".json?print=pretty";
+            //    var jsonStoryResult = ApiCall.DoApiCall(storyUrl);
+            //    JsonElement jsonHackerNewsStory = JsonSerializer.Deserialize<JsonElement>(jsonStoryResult);
+            //    Debug.WriteLine("The json story we are getting: " + jsonHackerNewsStory);
+
+            //    //Wonky that i have to set variables, then trycatch them THEN put them into the model. But it works
+            //    string url, by, title;
+            //    int descendants, score, id;
+            //    try
+            //    {
+            //        url = jsonHackerNewsStory.GetProperty("url").GetString();
+            //        descendants = jsonHackerNewsStory.GetProperty("descendants").GetInt32();
+            //        by = jsonHackerNewsStory.GetProperty("by").GetString();
+            //        score = jsonHackerNewsStory.GetProperty("score").GetInt32();
+            //        title = jsonHackerNewsStory.GetProperty("title").GetString();
+            //        id = jsonHackerNewsStory.GetProperty("id").GetInt32();
+            //    }
+            //    catch (KeyNotFoundException)
+            //    {
+            //        url = "N/A"; descendants = 0; by = "N/A"; score = 0; title = "N/A";
+            //        id = 0;
+            //    }
+
+            //    var model = new CLMatchModel()
+            //    {
+            //        by = by,
+            //        descendants = descendants,
+            //        score = score,
+            //        title = title,
+            //        url = url,
+            //        id = id
+            //    };
+            //    ListOfCLMatchModels.Add(model);
+            //}
+
+            return ListOfCLMatchModels;
+        }
     }
 }
