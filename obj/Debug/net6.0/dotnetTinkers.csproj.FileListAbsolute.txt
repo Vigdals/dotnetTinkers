@@ -1,0 +1,15 @@
+C:\github\dotnet_tinkering2\dotnetTinkers\bin\Debug\net6.0\dotnetTinkers.exe
+C:\github\dotnet_tinkering2\dotnetTinkers\bin\Debug\net6.0\dotnetTinkers.deps.json
+C:\github\dotnet_tinkering2\dotnetTinkers\bin\Debug\net6.0\dotnetTinkers.runtimeconfig.json
+C:\github\dotnet_tinkering2\dotnetTinkers\bin\Debug\net6.0\dotnetTinkers.dll
+C:\github\dotnet_tinkering2\dotnetTinkers\bin\Debug\net6.0\dotnetTinkers.pdb
+C:\github\dotnet_tinkering2\dotnetTinkers\obj\Debug\net6.0\dotnetTinkers.csproj.AssemblyReference.cache
+C:\github\dotnet_tinkering2\dotnetTinkers\obj\Debug\net6.0\dotnetTinkers.GeneratedMSBuildEditorConfig.editorconfig
+C:\github\dotnet_tinkering2\dotnetTinkers\obj\Debug\net6.0\dotnetTinkers.AssemblyInfoInputs.cache
+C:\github\dotnet_tinkering2\dotnetTinkers\obj\Debug\net6.0\dotnetTinkers.AssemblyInfo.cs
+C:\github\dotnet_tinkering2\dotnetTinkers\obj\Debug\net6.0\dotnetTinkers.csproj.CoreCompileInputs.cache
+C:\github\dotnet_tinkering2\dotnetTinkers\obj\Debug\net6.0\dotnetTinkers.dll
+C:\github\dotnet_tinkering2\dotnetTinkers\obj\Debug\net6.0\refint\dotnetTinkers.dll
+C:\github\dotnet_tinkering2\dotnetTinkers\obj\Debug\net6.0\dotnetTinkers.pdb
+C:\github\dotnet_tinkering2\dotnetTinkers\obj\Debug\net6.0\dotnetTinkers.genruntimeconfig.cache
+C:\github\dotnet_tinkering2\dotnetTinkers\obj\Debug\net6.0\ref\dotnetTinkers.dll

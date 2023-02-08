@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "Hb0boriWKCLZzfgKBWfvjOqLzdbS31vpXljoMAKHlWbrv7/PGI9nMxNNIAoNwuKWHZ651wLNI5ZF4h3xMB43Sg==",
+  "success": true,
+  "projectFilePath": "C:\\github\\dotnet_tinkering2\\dotnetTinkers\\dotnetTinkers.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://fmsfbuild01:8080/guestAuth/app/nuget/v1/FeedService.svc/'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}
